@@ -50,3 +50,44 @@ student_data_to_load = "Resources/students_complete.csv"
 school_data = pd.read_csv(school_data_to_load)
 student_data = pd.read_csv(student_data_to_load)
 ```
+
+3. Combine the data into a single dataset.
+
+```python
+school_data_complete = pd.merge(student_data, school_data, how="left", on=["school_name", "school_name"])
+```
+
+4. Ways of summarizing the data.
+
+```python
+# counting the number of schools, with .unique() because names of schools occurs more than once.
+school_names = school_data_complete["school_name"].unique()
+total_schools =len(school_names)
+# counting the number of students, with .count() because each student should be unique
+total_students = school_data_complete["student_name"].count()
+# filtering data: calculate the percentage of students with a passing math score (70 or greater)
+passing_math=school_data_complete.loc[school_data_complete["math_score"] >= 70]["math_score"].count()
+# group by schools
+school_names = school_data_complete.set_index("school_name").groupby(["school_name"])
+# sort and display top 5
+top_5 = summary_by_school.sort_values("Overall Passing Rate", ascending = False)
+```
+
+5. Create a table that lists the average Reading Score for each grade at each school.
+
+```python
+#Create a table that lists the average Reading Score for students of each grade level (9th, 10th, 11th, 12th) at each school.
+#Create a pandas series for each grade, using a conditional statement.
+#Group each series by school
+ninth = student_data.loc[student_data["grade"] == "9th"].groupby("school_name")["math_score"].mean()
+tenth = student_data.loc[student_data["grade"] == "10th"].groupby("school_name")["math_score"].mean()
+eleventh = student_data.loc[student_data["grade"] == "11th"].groupby("school_name")["math_score"].mean()
+twelfth = student_data.loc[student_data["grade"] == "12th"].groupby("school_name")["math_score"].mean()
+#Combine the series into a dataframe
+math_scores = pd.DataFrame({
+        "9th": ninth,
+        "10th": tenth,
+        "11th": eleventh,
+        "12th": twelfth
+})
+```

@@ -25,8 +25,11 @@ This project uses the Pandas library to manipulate data into tables that allow f
 - data processing/cleaning
 - statistical modeling
 
-## Getting Started
+## Contents of Project Repository
 
-1. Academy of Py Raw Data is being kept [here](https://github.com/jfandata/Washington_University_Data_Analytics_Certificate/tree/master/projects/Pandas/PyCitySchools/Resources) within this repo.
+1. School and student raw data is being kept [here](https://github.com/jfandata/PANDAS_PyCitySchools/tree/master/Resources) within this repo.
 
-2. Data processing/transformation scripts and results done in jupyter notebook are being kept [here](https://github.com/jfandata/Washington_University_Data_Analytics_Certificate/tree/master/projects/Pandas/PyCitySchools)
+2. Data processing/transformation scripts and results done in jupyter notebook are being kept [here](https://github.com/jfandata/PANDAS_PyCitySchools/blob/master/PyCitySchools_starter.ipynb)
+
+## Key Takeaways
+
